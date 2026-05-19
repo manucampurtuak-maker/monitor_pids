@@ -1,21 +1,11 @@
-FROM php:8.2-apache
+FROM php:8.2-cli
 
-# Hapus semua MPM yang bentrok
-RUN rm -f /etc/apache2/mods-enabled/mpm_event.load
-RUN rm -f /etc/apache2/mods-enabled/mpm_event.conf
-RUN rm -f /etc/apache2/mods-enabled/mpm_worker.load
-RUN rm -f /etc/apache2/mods-enabled/mpm_worker.conf
-
-# Aktifkan prefork
-RUN a2enmod mpm_prefork
-
-# Install ekstensi PHP
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Copy project
-COPY . /var/www/html/
+WORKDIR /app
 
-# Permission
-RUN chown -R www-data:www-data /var/www/html
+COPY . /app
 
-EXPOSE 80
+CMD ["php", "-S", "0.0.0.0:8080"]
+
+EXPOSE 8080
