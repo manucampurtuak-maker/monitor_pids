@@ -1,0 +1,468 @@
+/* ===============================
+   GLOBAL
+================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+    background: linear-gradient(180deg, #eef2ff, #f8fafc);
+    margin: 0;
+    padding: 0;
+    color: #1f2937;
+}
+
+/* ===============================
+   CONTAINER
+================================ */
+.container {
+    width: 92%;
+    max-width: 980px;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+    padding: 24px;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    transform: translateY(-1px);
+}
+
+.btn-small {
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #10b981, #22c55e);
+    border-radius: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-small:hover {
+    background: linear-gradient(135deg, #059669, #16a34a);
+    transform: translateY(-1px);
+}
+
+.btn-yellow {
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    border-radius: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-yellow:hover {
+    background: linear-gradient(135deg, #d97706, #f59e0b);
+    transform: translateY(-1px);
+}
+
+/* ===============================
+   FORM
+================================ */
+.form-group {
+    margin: 16px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #374151;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+/* ===============================
+   NOMOR ANTRIAN DISPLAY
+================================ */
+.nomor {
+    padding: 18px;
+    background: linear-gradient(135deg, #f8fafc, #eef2ff);
+    border: 2px solid #c7d2fe;
+    border-radius: 12px;
+    font-size: 36px;
+    text-align: center;
+    font-weight: 800;
+    color: #1e3a8a;
+    letter-spacing: 2px;
+}
+
+/* ===============================
+   TABLE
+================================ */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.table th,
+.table td {
+    border: 1px solid #e5e7eb;
+    padding: 12px;
+    text-align: center;
+}
+
+.table th {
+    background: #f1f5f9;
+    font-weight: 700;
+    color: #111827;
+}
+
+.table tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+.table tr:hover {
+    background: #eef2ff;
+}
+
+/* ===============================
+   NAVIGATION
+================================ */
+.nav {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.nav a {
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: #e5e7eb;
+    color: #1f2937;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.nav a:hover {
+    background: #c7d2fe;
+    color: #1e3a8a;
+}
+
+/* ===============================
+   MONITOR BOX VIEW
+================================ */
+.monitor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.monitor-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1.5fr;
+    gap: 12px;
+}
+
+.monitor-box {
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+}
+
+.monitor-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.monitor-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: #111827;
+}
+
+.monitor-no {
+    font-size: 36px;
+    color: #1e3a8a;
+}
+
+/* STATUS */
+.status-menunggu {
+    background: #fef3c7;
+    border-color: #f59e0b;
+    color: #92400e;
+}
+
+.status-dipanggil {
+    background: #dcfce7;
+    border-color: #22c55e;
+    color: #166534;
+}
+
+.status-selesai {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+    color: #374151;
+}
+.btn-red {
+    background: #ef4444;
+}
+
+.btn-red:hover {
+    background: #dc2626;
+}
+/* ==========================
+   MONITOR DISPLAY
+========================== */
+
+.monitor-list {
+    margin-top: 20px;
+}
+
+.monitor-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.monitor-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.monitor-label {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.monitor-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.monitor-no {
+    font-size: 40px;
+    color: #2563eb;
+}
+
+/* STATUS */
+.status-dipanggil {
+    background: #ecfeff;
+    border-color: #06b6d4;
+}
+.header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 300px;       /* bisa diubah sesuai kebutuhan */
+    height: auto;
+}
+/* ===============================
+   MONITOR CONTAINER
+================================ */
+.monitor-container {
+    width: 92%;
+    max-width: 980px;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+    padding: 24px;
+}
+
+/* ===============================
+   FIDS CONTAINER (baru)
+================================ */
+.fids-container {
+    width: 100%;
+    padding: 12px 20px;
+    background: #020617;
+}
+/* =========================================
+   FIDS FULLSCREEN DISPLAY
+========================================= */
+
+html, body {
+    height: 100%;
+}
+
+/* FULLSCREEN MODE */
+.fids-container {
+    height: 100vh;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    background: #020617;
+}
+
+/* HEADER */
+.fids-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #22d3ee;
+    font-size: 1.6vw;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+/* WRAPPER */
+.fids-wrapper {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* TABLE */
+.fids-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.82vw;
+}
+
+/* HEADER TABLE */
+.fids-table th {
+    color: #38bdf8;
+    border-bottom: 2px solid #38bdf8;
+    padding: 8px 4px;
+    font-size: 0.65vw;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+/* CELL */
+.fids-table td {
+    color: #e5e7eb;
+    padding: 8px 6px;
+    text-align: center;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ROW HEIGHT */
+.fids-table tr {
+    height: 4.5vh;
+}
+
+/* ZEBRA ROW */
+.fids-table tbody tr:nth-child(odd) td {
+    background-color: rgba(56,189,248,0.06);
+}
+
+.fids-table tbody tr:nth-child(even) td {
+    background-color: rgba(255,255,255,0.02);
+}
+
+/* IMPORTANT COLUMN STYLING */
+
+/* SI NUMBER */
+.fids-table td:nth-child(2) {
+    font-weight: 700;
+    font-size: 0.9vw;
+    color: #ffffff;
+}
+
+/* LOADING GATE */
+.fids-table td:nth-child(12) {
+    font-size: 1vw;
+    font-weight: 800;
+    color: #22d3ee;
+}
+
+/* STATUS COLUMNS */
+.fids-table td:nth-child(14),
+.fids-table td:nth-child(15),
+.fids-table td:nth-child(16),
+.fids-table td:nth-child(17) {
+    font-weight: 700;
+}
+
+/* LOG OUT */
+.btn-logout {
+    background: #dc2626;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.btn-logout:hover {
+    background: #b91c1c;
+}

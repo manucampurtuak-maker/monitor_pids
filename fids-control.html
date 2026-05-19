@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>PIDS Control</title>
+
+    <!-- STYLE LAMA (ANTRIAN) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- STYLE KHUSUS FIDS CONTROL -->
+    <link rel="stylesheet" href="fids-control.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>PIDS DATA ENTRY</h1>
+    </div>
+
+    <form class="fids-form">
+
+        <div class="form-group">
+            <label>Vessel Name</label>
+            <input id="vessel">
+        </div>
+
+
+        <div class="form-group">
+            <label>SI Number</label>
+            <input id="si">
+        </div>
+
+        <div class="form-group">
+            <label>QTY (MT)</label>
+            <input id="qty">
+        </div>
+
+        <div class="form-group">
+            <label>TEUS</label>
+            <input id="teus">
+        </div>
+
+        <div class="form-group">
+            <label>CTR Size</label>
+            <input id="ctrSize">
+        </div>
+
+        <div class="form-group">
+            <label>PCK Type</label>
+            <input id="pckType">
+        </div>
+
+        <div class="form-group">
+            <label>Loading Method</label>
+            <input id="loadingMethod">
+        </div>
+
+        <div class="form-group">
+            <label>Customer Name</label>
+            <input id="customer">
+        </div>
+
+        <div class="form-group">
+            <label>Container Status</label>
+            <input id="ctrStatus">
+        </div>
+
+        <div class="form-group">
+            <label>Closing Time</label>
+            <input id="closing" type="datetime-local">
+
+        </div>
+
+        <div class="form-group">
+            <label>Loading Gate</label>
+            <input id="gate">
+        </div>
+
+        <div class="form-group">
+            <label>Staging Warehouse</label>
+            <input id="warehouse">
+        </div>
+
+        <div class="form-group">
+            <label>Picking Status</label>
+            <input id="picking">
+        </div>
+
+        <div class="form-group">
+            <label>Loading Status</label>
+            <input id="loading">
+        </div>
+
+        <div class="form-group">
+            <label>Custom Status</label>
+            <input id="custom">
+        </div>
+
+        <div class="form-group">
+            <label>Shipment Status</label>
+            <input id="shipment">
+        </div>
+
+        <div class="form-group">
+            <label>TC</label>
+            <input id="tc">
+        </div>
+
+    </form>
+
+<input type="file" id="excelFile" accept=".xlsx, .xls">
+<button class="btn btn-red" onclick="importExcel()">Import Excel</button>
+<button class="fids-btn" onclick="tambahFIDS()">Tambah Data PIDS</button>
+<button class="btn btn-blue" onclick="openFIDS()">Buka PIDS</button>
+<button class="btn btn-blue" onclick="resetRiwayatFIDS()">Reset Riwayat PIDS</button>
+<button class="btn btn-red" onclick="exportFIDS()">Export Excel</button>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

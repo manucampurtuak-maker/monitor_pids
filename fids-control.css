@@ -1,0 +1,70 @@
+/* ======================
+   FIDS CONTROL STYLE
+====================== */
+body {
+    background: #f3f6ff;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 25px auto;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+.header h1 {
+    margin: 0;
+    color: #1e293b;
+}
+
+/* FORM GRID */
+.fids-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.fids-form label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.fids-form input,
+.fids-form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #cbd5f5;
+    font-size: 14px;
+}
+
+.fids-form input:focus,
+.fids-form select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+/* BUTTON */
+.fids-btn {
+    margin-top: 20px;
+    padding: 12px 18px;
+    background: linear-gradient(90deg, #2563eb, #1d4ed8);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.fids-btn:hover {
+    opacity: 0.9;
+}

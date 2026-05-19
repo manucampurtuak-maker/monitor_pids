@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitor + PIDS</title>
+    <link rel="stylesheet" href="monitor.css">
+</head>
+<body>
+    
+<div class="page">
+
+<!-- ===== MONITOR ===== -->
+
+<div class="top-bar">
+    <div class="chart-container-left">...</div>
+    <div class="analog-clock">...</div>
+</div>
+
+<div class="container monitor-container">
+
+    <div class="header">
+        <img src="logo.png" class="logo" alt="Logo">
+         <div class="system-title">
+            PORT PLANNING INFORMATION SYSTEM
+        </div>
+    </div>
+    
+    
+
+    <div class="monitor-list" id="monitorList"></div>
+
+    <div class="nav">
+    </div>
+</div>
+
+
+<!-- ===== FIDS ===== -->
+<div class="fids-container">
+
+<div class="chart-container-left">
+    <canvas id="dailyChart"></canvas>
+</div>
+</div>
+
+    <div class="analog-clock">
+
+        <div class="number n12">12</div>
+    <div class="number n3">3</div>
+    <div class="number n6">6</div>
+    <div class="number n9">9</div>
+
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand second"></div>
+    </div>
+    <div class="marquee-container">
+    <div class="marquee-track">
+        <span id="marqueeText">PLANNING INFORMATION DISPLAY SYSTEM</span>
+    </div>
+</div>
+
+        </div>
+
+    <div class="fids-wrapper">
+        <table class="fids-table">
+            <thead>
+                <tr>
+                    <th>VESSEL NAME</th>
+                    <th>SI Number</th>
+                    <th>QTY (MT)</th>
+                    <th>TEUS</th>
+                    <th>CTR SIZE</th>
+                    <th>PCK TYPE</th>
+                    <th>LOADING METHOD</th>
+                    <th>CUSTOMER</th>
+                    <th>CONTAINER STATUS</th>
+                    <th>CLOSING TIME</th>
+                    <th>LOADING GATE</th>
+                    <th>STAGING WAREHOUSE</th>
+                    <th>PICKING STATUS</th>
+                    <th>LOADING STATUS</th>
+                    <th>CUSTOM STATUS</th>
+                    <th>SHIPMENT STATUS</th>
+                    <th>TC</th>
+                     <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="fidsList"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <h3>Edit FIDS Data</h3>
+
+    <input type="hidden" id="editCreated">
+
+    <label>Vessel Name</label>
+    <input type="text" id="editVessel">
+
+    <label>SI Number</label>
+    <input type="text" id="editSI">
+
+    <label>QTY (MT)</label>
+    <input type="number" id="editQty">
+
+    <label>TEUS</label>
+    <input type="number" id="editTeus">
+
+    <label>CTR Size</label>
+    <input type="text" id="editCtrSize">
+
+    <label>PCK Type</label>
+    <input type="text" id="editPckType">
+
+    <label>Loading Method</label>
+    <input type="text" id="editLoadingMethod">
+
+    <label>Customer</label>
+    <input type="text" id="editCustomer">
+
+    <label>Container Status</label>
+    <input type="text" id="editCtrStatus">
+
+    <label>Closing Time</label>
+    <input type="datetime-local" id="editClosing">
+
+    <label>Loading Gate</label>
+    <input type="text" id="editGate">
+
+    <label> Staging Warehouse</label>
+    <input type="text" id="editWarehouse">
+
+    <label>Picking Status</label>
+    <input type="text" id="editPicking">
+
+    <label>Loading Status</label>
+    <input type="text" id="editLoading">
+
+    <label>Custom Status</label>
+    <input type="text" id="editCustom">
+
+    <label>Shipment Status</label>
+    <input type="text" id="editShipment">
+
+    <label>TC</label>
+    <input type="text" id="editTC">
+
+    <div class="modal-buttons">
+      <button onclick="saveEdit()">Save</button>
+      <button onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+<script src="fids.js"></script>
+
+<script>
+    renderMonitor();
+    renderFIDS();
+
+    // 🔥 FIX UTAMA: Bungkus render dengan mekanisme PAUSE & RESUME Speech
+    setInterval(() => {
+        const isSpeaking = window.speechSynthesis.speaking || window.speechSynthesis.pending;
+
+        if (isSpeaking) {
+            window.speechSynthesis.pause(); // Hentikan suara sementara saat DOM dirender
+        }
+
+        renderMonitor();
+        renderFIDS();
+
+        if (isSpeaking) {
+            // Beri jeda sedikit agar browser selesai merender DOM, lalu resume suara
+            setTimeout(() => {
+                window.speechSynthesis.resume();
+            }, 50);
+        }
+    }, 1000);
+
+    document.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(() => {});
+        }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>

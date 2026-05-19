@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Riwayat Antrian</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Riwayat Antrian</h1>
+          <button class="btn" onclick="exportExcel()">Export Excel</button>
+        <button class="btn btn-red" onclick="hapusRiwayat()">Hapus Riwayat</button>
+    </div>
+
+<div class="table-container">    
+    <table class="fids-table">
+        <thead>
+            <tr>
+                <th>No Urut</th>
+                <th>No SI</th>
+                <th>Gate</th>
+                <th>Status</th>
+                <th>Waktu</th>
+            </tr>
+        </thead>    
+        <tbody id="riwayatList"></tbody>
+    </table>
+</div>   
+
+    <div class="nav">
+        <a href="login.php">Control</a>
+        <a href="monitor.html">Monitor</a>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script src="script.js"></script>
+<script>
+    renderRiwayat();
+</script>
+</body>
+</html>

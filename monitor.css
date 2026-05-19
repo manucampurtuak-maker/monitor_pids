@@ -1,0 +1,495 @@
+/* =========================================
+   GLOBAL DARK THEME
+========================================= */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+    font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+    background: #020617;
+    color: #e5e7eb;
+    position: relative;
+}
+
+/* =========================================
+   MONITOR SECTION
+========================================= */
+
+.monitor-container {
+   width: 92%;
+    max-width: 1200px;
+    margin: 10px auto 40px auto; /* Margin atas kita buat 40px biar gak mepet jam/grafik */
+    background: #0f172a;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.05);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 260px;
+}
+
+/* HEADER */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;   /* putih */
+    padding: 18px 25px;
+    border-radius: 14px 14px 0 0;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    background: linear-gradient(to right, #ffffff, #f1f5f9);
+
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 220px;
+    height: auto;
+}
+.system-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(76, 76, 76);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    position: relative;
+    left: -20px; /* geser ke kiri */
+
+    
+}
+.header h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;   /* hitam */
+}
+
+
+/* MONITOR GRID */
+.monitor-list {
+    margin-bottom: -30px;
+}
+
+.monitor-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+/* BOX STYLE */
+.monitor-box {
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    padding: 10px 5px;
+    margin-top: 10px;
+    text-align: center;
+    border: 3px solid rgba(4, 236, 233, 0.76);
+    backdrop-filter: blur(6px);
+}
+
+/* TEXT */
+.monitor-label {
+    color: #fcfcfc;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.monitor-value {
+    font-size: 38px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.monitor-no {
+    font-size: 38px;
+    color: #22d3ee;
+}
+
+/* STATUS COLORS */
+.status-menunggu {
+    background: rgba(245,158,11,0.15);
+    border-color: #f59e0b;
+}
+
+.status-dipanggil {
+    background: rgba(34,197,94,0.15);
+    border-color: #22c55e;
+}
+
+.status-selesai {
+    background: rgba(148,163,184,0.15);
+    border-color: #64748b;
+}
+
+/* NAV */
+.nav {
+    margin-top: auto;
+    display: flex;
+    gap: 15px;
+}
+
+.nav a {
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: #1e293b;
+    color: #e2e8f0;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.nav a:hover {
+    background: #334155;
+    color: #22d3ee;
+}
+
+/* =========================================
+   FIDS SECTION
+========================================= */
+
+
+.fids-header {
+    color: #22d3ee;
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: -5px;
+    display: flex;
+    justify-content: space-between; /* 🔥 INI PENTING */
+    align-items: center;
+}
+
+/* TABLE */
+.fids-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-size: 0.82vw;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Table tidak melewati cell */
+.table-container {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: -5px;
+}
+
+/* HEADER */
+.fids-table th {
+    color: #08eaf2;
+    border-top: 0px solid #02fdf5;
+    border-bottom: 2px solid #02fdf5;
+    padding: 8px 4px;
+    font-size: 0.7vw;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+/* BODY */
+.fids-table td {
+    padding: 10px 6px;
+    text-align: center;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ROW HEIGHT */
+.fids-table tr {
+    height: 4.5vh;
+}
+
+.fids-table tbody tr:nth-child(odd) td {
+    background-color: #0f1e3a;   /* biru gelap */
+}
+
+.fids-table tbody tr:nth-child(even) td {
+    background-color: #13294b;   /* sedikit beda */
+}
+
+
+/* IMPORTANT COLUMNS */
+
+
+/* No Urut */
+.monitor-row .monitor-box:nth-child(1) .monitor-value {
+    color: #05d3ee;
+}
+
+/* No SI */
+.monitor-row .monitor-box:nth-child(2) .monitor-value {
+    color: #f02b08;
+}
+
+/* Gate */
+.monitor-row .monitor-box:nth-child(3) .monitor-value {
+    color: #faf602;
+}
+.monitor-row .monitor-box:nth-child(4) .monitor-value {
+    color: #23f007;
+}
+
+/* ===============================
+   FIDS REALTIME CLOCK
+================================ */
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+    height: 40px;              /* kasih tinggi tetap */
+    position: relative;
+}
+
+.marquee-track {
+    position: absolute;
+    white-space: nowrap;
+    top: 40%;
+    transform: translateY(-50%);
+    animation: marqueeMove 12s linear infinite;
+}
+
+#marqueeText {
+    font-weight: 900;
+    font-size: 40px;   /* sementara pakai px dulu biar stabil */
+    color: #38bdf8;
+    padding-right: 150px;
+
+    text-shadow:
+        0 0 4px rgba(56,189,248,0.9),
+        0 0 8px rgba(56,189,248,0.7),
+        0 0 16px rgba(56,189,248,0.5),
+        0 0 24px rgba(56,189,248,0.3);
+}
+@keyframes marqueeMove {
+    from {
+        left: 100%;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+
+.analog-clock {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #38bdf8;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(56,189,248,0.4);
+    z-index: 9999;
+}
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(0deg);
+}
+
+.hour {
+    width: 4px;
+    height: 25px;
+    background: #ffffff;
+}
+
+.minute {
+    width: 3px;
+    height: 35px;
+    background: #067fb2;
+}
+
+.second {
+    width: 2px;
+    height: 40px;
+    background: #ef4444;
+}
+.number {
+    position: absolute;
+    font-size: 14px;
+    font-weight: 600;
+    color: #38bdf8;
+    text-shadow: 0 0 6px rgba(56,189,248,0.7);
+}
+
+.n12 { top: 5px; left: 50%; transform: translateX(-50%); }
+.n3  { right: 8px; top: 50%; transform: translateY(-50%); }
+.n6  { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.n9  { left: 8px; top: 50%; transform: translateY(-50%); }
+
+/* Garis menit */
+.tick {
+    position: absolute;
+    width: 2px;
+    height: 4px;
+    background: rgb(6, 136, 235);
+    top: 0;
+    left: 50%;
+    transform-origin: center 45px; /* set sesuai radius */
+    border-radius: 2px;
+}
+
+.fids-table tbody tr.new-row td {
+    background: #f7eb05 !important;
+    color: #000 !important;
+    font-weight: 600;
+}
+.btn-priority,
+.btn-edit {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 4px;
+}
+
+.btn-priority {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.btn-priority:hover {
+    background-color: #2563eb;
+}
+
+.btn-edit {
+    background-color: #10b981;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #059669;
+}
+
+
+.modal {
+  display: none;              /* default tersembunyi */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+.modal-content label {
+  font-size: 13px;
+  margin-top: 8px;
+  display: block;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.modal-buttons {
+  margin-top: 15px;
+  text-align: right;
+}
+
+.modal-buttons button {
+  padding: 6px 12px;
+  margin-left: 5px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+  background: #2563eb;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background: #9ca3af;
+  color: white;
+}
+
+tr {
+    transition: all 0.3s ease;
+}
+
+/* Container Grafik Batang (Simetris dengan Jam) */
+.top-bar {
+    position: relative;
+    height: 130px; /* tinggi area untuk chart + jam */
+}
+
+.chart-container-left {
+    position: absolute;
+    top: 15px;         /* Samakan dengan 'top' pada .analog-clock Anda */
+    left: 50px;        /* Jarak dari kiri layar */
+    width: 300px;      /* Ukuran lebar box grafik */
+    height: 100px;     /* Tinggi box grafik */
+    background: rgba(15, 23, 42, 0.6); 
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 12px;
+    padding: 10px;
+    z-index: 999;      /* Pastikan di atas elemen lain */
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+/* Container Grafik Batang */
+.chart-container-left canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Judul kecil di atas batang */
+.chart-container-left::after {
+    content: "";
+    display: block;
+    text-align: center;
+    font-size: 5px;
+    color: #38bdf8;
+    margin-top: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Rapih */
+.page {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
