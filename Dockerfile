@@ -1,11 +1,15 @@
 FROM php:8.2-apache
 
-# Disable conflicting MPM
-RUN a2dismod mpm_event || true
-RUN a2dismod mpm_worker || true
+# Hapus semua MPM yang bentrok
+RUN rm -f /etc/apache2/mods-enabled/mpm_event.load
+RUN rm -f /etc/apache2/mods-enabled/mpm_event.conf
+RUN rm -f /etc/apache2/mods-enabled/mpm_worker.load
+RUN rm -f /etc/apache2/mods-enabled/mpm_worker.conf
+
+# Aktifkan prefork
 RUN a2enmod mpm_prefork
 
-# Install MySQL extensions
+# Install ekstensi PHP
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # Copy project
