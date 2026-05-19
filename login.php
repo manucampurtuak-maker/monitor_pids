@@ -1,15 +1,7 @@
 <?php
 session_start();
 
- $host = "localhost";
- $user = "root";
- $pass = "";
- $db   = "db_antrian";
- $conn = mysqli_connect($host, $user, $pass, $db);
-
-if (!$conn) {
-    die("Koneksi gagal: " . mysqli_connect_error());
-}
+include 'koneksi.php';
 
 if (isset($_POST['login'])) {
     $nik = $_POST['nik'];
@@ -31,6 +23,7 @@ if (isset($_POST['login'])) {
         $error = "NIK atau password salah / bukan admin!";
     }
 }
+?>
 ?>
 <!DOCTYPE html>
 <html lang="id">
